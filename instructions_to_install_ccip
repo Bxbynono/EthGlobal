@@ -1,4 +1,4 @@
-##t o install truffle suite 
+##to install truffle suite 
 npm install -g truffle
 
 ## Install the necessary packages, including @chainlink/contracts and ethers, for interacting with Chainlink CCIP and Ethereum:
