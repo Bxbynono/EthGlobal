@@ -1,0 +1,109 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .dashboard {
+    display: flex;
+    height: 100vh;
+    background-color: #f4f4f4;
+  }
+  
+  .sidebar {
+    width: 200px;
+    background-color: #454545;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .logo {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    margin-bottom: 40px;
+    margin-left: -25px; 
+  }
+  
+  .logo img {
+    max-width: 80%; 
+    height: auto;
+  }
+  
+  .menu {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+  }
+  
+  .menu li {
+    text-align: center;
+    margin: 43px 0;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 20px; 
+    background-color: white; 
+    color: #57E0FE; 
+    font-size: 20px;
+  }
+  
+  .menu li:hover {
+    background-color: #e0e0e0; 
+    transform: scale(1.05);
+  }
+  
+  .content {
+    flex: 1;
+    padding: 40px;
+    background-color: white;
+    border-radius: 10px;
+    margin: 20px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative; 
+  }
+  
+  .admin-info {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 10px 15px; 
+    position: absolute; 
+    top: 10px; 
+    right: 40px; 
+    width: 300px; 
+    height: auto; 
+    text-align: center; 
+  }
+  
+  .feedbacks-section {
+    overflow-x: auto;
+    border-top: 2px solid #57E0FE;
+    padding-top: 0px;
+    margin-top: 60px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  button {
+    padding: 5px 10px;
+    background-color: #61dafb;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #21a1f1;
+  }
+  
