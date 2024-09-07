@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../LandingPages/css/Project_details.css";
+import "./Project_details.css";
 
 const ProposalForm = ({ proposal }) => {
   const [status, setStatus] = useState("");
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
-  const handleStatusChange = (e) => {
-    setStatus(e.target.value);
+  const handleStatusClick = (value) => {
+    setStatus(value); // Update state based on button click
+  };
+
+  const handleBackClick = () => {
+    navigate("/Proposals"); // Adjusted the path to match typical routing conventions
   };
 
   const handleSubmit = (e) => {
@@ -15,64 +19,69 @@ const ProposalForm = ({ proposal }) => {
     console.log(`Proposal ${proposal.name} has been ${status}`);
   };
 
-  const handleBackClick = () => {
-    navigate("/Proposals.js");
-  };
-
   return (
     <div className="proposal-form">
-      <h2>Proposal Approval/Decline</h2>
+      <h2>Project Details</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <p>
-            <strong>Project Name:</strong> {proposal.name}
-          </p>
+          <label>
+            <strong>Project Name:</strong>
+            <p>{proposal.name}</p>
+          </label>
         </div>
         <div className="form-group">
           <label>
             Required Budget:
-            <input type="number" placeholder="Minimum" />
-            <input type="number" placeholder="Maximum" />
+            <div className="budget-group">
+              <input type="number" placeholder="Minimum" />
+              <input type="number" placeholder="Maximum" />
+            </div>
           </label>
         </div>
         <div className="form-group">
           <label>
             Duration of Campaign:
-            <input type="date" placeholder="Start Date" />
-            <input type="date" placeholder="End Date" />
+            <div className="date-group">
+              <input type="date" placeholder="Start Date" />
+              <input type="date" placeholder="End Date" />
+            </div>
           </label>
         </div>
         <div className="form-group">
           <label>
             Project Proposal:
-            <button type="button">Project Document</button>
+            <br />
+            <button type="button" className="download-button">
+              Download Document
+            </button>
           </label>
         </div>
-        <div className="form-group">
-          <label>
-            <input
-              type="radio"
-              value="Approved"
-              checked={status === "Approved"}
-              onChange={handleStatusChange}
-            />
-            Approve
-          </label>
-          <label>
-            <input
-              type="radio"
-              value="Declined"
-              checked={status === "Declined"}
-              onChange={handleStatusChange}
-            />
-            Decline
-          </label>
+        <div className="button-group">
+          <div className="left-buttons">
+            <button
+              type="button"
+              className="approve-button"
+              onClick={() => handleStatusClick("Approved")}
+            >
+              Approve
+            </button>
+            <button
+              type="button"
+              className="decline-button"
+              onClick={() => handleStatusClick("Declined")}
+            >
+              Decline
+            </button>
+          </div>
+          <button
+            type="button"
+            className="back-button right-button"
+            onClick={handleBackClick}
+          >
+            Back
+          </button>
         </div>
-        <button type="submit">Submit</button>
       </form>
-      <button type="button" onClick={handleBackClick}>
-        Back
-      </button>
     </div>
   );
 };
